@@ -6,6 +6,7 @@ from pdf_processor import PDFProcessor
 from langdetect import detect_langs, DetectorFactory, LangDetectException
 import warnings
 import logging
+import pdfplumber
 
 warnings.filterwarnings("ignore")
 logging.getLogger("pdfminer").setLevel(logging.ERROR)
@@ -21,6 +22,11 @@ def main():
         if os.path.isfile(pdf_path):
             print(f"Начато распознавание файла: {pdf_path}")
             try:
+                # Получаем количество страниц заранее
+                import pdfplumber
+                with pdfplumber.open(pdf_path) as pdf:
+                    num_pages = len(pdf.pages)
+
                 extracted_text = service.process_pdf(pdf_path)
                 try:
                     langs = detect_langs(extracted_text)
@@ -46,7 +52,6 @@ def main():
                     f.write(extracted_text)
 
                 # Выводим статистику
-                num_pages = extracted_text.count('\f') + 1 if extracted_text else 0
                 num_chars = len(extracted_text)
                 print(f"Распознавание завершено. Страниц: {num_pages}, символов: {num_chars}")
             except Exception as e:
