@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='pdf-text-extractor-service',
-    version='0.1.1',
+    version='0.1.2',
     author='Stanislav Bezzhanov',
     author_email='stanislav.bezzhanov@nfp2b.com',
     description='A service to extract text from PDF files',

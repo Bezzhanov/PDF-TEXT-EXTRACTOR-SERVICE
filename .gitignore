@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# VS Code
+.vscode/
+
+# PyInstaller
+dist/
+build/
+*.spec
+
+# Jupyter Notebook
+*.ipynb_checkpoints
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Env
+.env
+.venv/
+venv/
+env/
+
+# PDF/Text output
+*.txt
+
+# Misc
+*.bak

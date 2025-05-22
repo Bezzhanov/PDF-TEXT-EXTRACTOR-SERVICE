@@ -69,4 +69,4 @@ pdfplumber
 pytesseract
 Pillow
 langdetect
-````
+tqdm

@@ -1,8 +1,10 @@
+from tqdm import tqdm
+
 class PDFProcessor:
     def __init__(self):
         pass
 
-    def extract_text(self, pdf_path, ocr_lang='rus+eng'):
+    def extract_text(self, pdf_path, ocr_lang='rus+eng', resolution=200):
         import pdfplumber
         import pytesseract
         from PIL import Image
@@ -11,16 +13,18 @@ class PDFProcessor:
 
         text = ""
         with pdfplumber.open(pdf_path) as pdf:
-            for page in pdf.pages:
+            pages_text = []
+            for page in tqdm(pdf.pages, desc="OCR страниц"):
                 page_text = page.extract_text()
                 if page_text and page_text.strip():
-                    text += page_text + "\n"
+                    pages_text.append(page_text)
                 else:
-                    # Используем сразу оба языка для OCR
-                    image = page.to_image(resolution=300).original
+                    image = page.to_image(resolution=resolution).original
+                    if hasattr(page, "rotation") and page.rotation:
+                        image = image.rotate(-page.rotation, expand=True)
                     ocr_text = pytesseract.image_to_string(image, lang=ocr_lang)
-                    text += ocr_text + "\n"
-        return text.strip()
+                    pages_text.append(ocr_text)
+        return "\n".join(pages_text).strip()
 
 if __name__ == "__main__":
     import os
