@@ -34,11 +34,7 @@ pip install -r requirements.txt
 - Скачайте установщик для Windows:  
   [https://github.com/UB-Mannheim/tesseract/wiki](https://github.com/UB-Mannheim/tesseract/wiki)
 - Установите Tesseract, запомните путь установки (например, `C:\Program Files\Tesseract-OCR`).
-- Добавьте путь к Tesseract в переменную среды `PATH` или укажите его явно в коде:
-  ```python
-  import pytesseract
-  pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
-  ```
+- Добавьте путь к Tesseract в переменную среды `PATH` 
 - Для русского и английского языков убедитесь, что в папке `tessdata` есть файлы `rus.traineddata` и `eng.traineddata`.
 
 ---
