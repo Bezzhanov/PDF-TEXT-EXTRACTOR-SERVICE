@@ -19,7 +19,7 @@
 ### 1. Клонируйте репозиторий
 
 ```sh
-git clone <https://github.com/Bezzhanov/PDF-TEXT-EXTRACTOR-SERVICE.git>
+git clone https://github.com/Bezzhanov/PDF-TEXT-EXTRACTOR-SERVICE.git
 cd pdf-text-extractor-service
 ```
 
