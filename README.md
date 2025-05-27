@@ -16,14 +16,18 @@
 
 ## Установка
 
-### 1. Клонируйте репозиторий
+### 1. Клонируйте репозиторий или скачайте последний релиз
 
 ```sh
 git clone https://github.com/Bezzhanov/PDF-TEXT-EXTRACTOR-SERVICE.git
 cd pdf-text-extractor-service
 ```
 
-### 2. Установите Python-зависимости
+```
+https://github.com/Bezzhanov/PDF-TEXT-EXTRACTOR-SERVICE/releases
+```
+
+### 2. Установите Python-зависимости (если будете использовать python скрипт)
 
 ```sh
 pip install -r requirements.txt
@@ -33,7 +37,7 @@ pip install -r requirements.txt
 
 - Скачайте установщик для Windows:  
   [https://github.com/UB-Mannheim/tesseract/wiki](https://github.com/UB-Mannheim/tesseract/wiki)
-- Установите Tesseract, запомните путь установки (например, `C:\Program Files\Tesseract-OCR`).
+- Установите Tesseract, запомните путь установки (`C:\Program Files\Tesseract-OCR`).
 - Добавьте путь к Tesseract в переменную среды `PATH` 
 - Для русского и английского языков убедитесь, что в папке `tessdata` есть файлы `rus.traineddata` и `eng.traineddata`.
 
@@ -47,6 +51,10 @@ pip install -r requirements.txt
 python src/main.py "путь\к\вашему\файлу.pdf"
 ```
 
+```powershell
+.\pdf-text-extractor.exe "путь\к\вашему\файлу.pdf"
+```
+
 - После обработки текст будет выведен в консоль и сохранён в файл с тем же именем, но расширением `.txt` рядом с PDF.
 
 ---
@@ -57,6 +65,7 @@ python src/main.py "путь\к\вашему\файлу.pdf"
 - `src/service.py` — класс службы, управляющий обработкой PDF.
 - `src/pdf_processor.py` — класс для извлечения текста и OCR.
 - `requirements.txt` — список зависимостей.
+- `dist/pdf-text-extractor.exe` - консольное приложение
 
 ---
 
